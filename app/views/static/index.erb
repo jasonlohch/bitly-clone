@@ -1,11 +1,13 @@
+<div class="container">
+
 <h1>NOT-Bitly</h1>
 <p>NOT Bitly But Still a Short Link Generator</p>
 
 <p><%= @errors if @errors %></p>
 
-<form action="/shorten" method="post">
-   	Enter URL:
-    <input type="text" name="long_url" placeholder="Enter your URL">
+<form  id="create_url" action="/shorten" method="post">
+   	
+    <input  id="text_input" type="text" name="long_url" placeholder="Enter your URL">
     <input type="submit" value="Submit">
  </form>
 
@@ -30,3 +32,5 @@
  	</tr>
  	<% end %>
  </table>
+
+</div>

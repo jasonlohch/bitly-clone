@@ -47,6 +47,10 @@ get '/:shortlink' do
 
 end
 
-
+post "/test" do
+	@url = Url.new(long_url: params[:long_url], short_url: SecureRandom.hex(4))
+	@url.save
+	@url.to_json
+end
 
 
