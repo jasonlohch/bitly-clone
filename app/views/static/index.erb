@@ -1,2 +1,32 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+<h1>NOTBitly</h1>
+<p>NOT Bitly But Still a Short Link Generator</p>
+
+<p><%= @errors if @errors %></p>
+
+<form action="/shorten" method="post">
+   	Enter URL:
+    <input type="text" name="long_url" placeholder="Enter your URL">
+    <input type="submit" value="Submit">
+ </form>
+
+ <table class="table">
+ 	<tr>
+ 		<th>Long Url</th>
+ 		<th>Short Url</th>
+ 		<th>Click Count</th>
+ 	</tr>
+
+ 	<% @urls.each do |url| %>
+ 	<tr>
+ 		<td><%= url.long_url %></td>
+ 		<td><a href="/<%= url.short_url %>">localhost:9393/<%= url.short_url %></td>
+ 		
+ 		<td><%= url.visit_count %></td>
+ 		<td>
+	 		<form action="/<%=url.id%>/vote" method="post">
+	 			<input type="Submit" value="Click">
+	 		</form>
+ 		</td>
+ 	</tr>
+ 	<% end %>
+ </table>
